@@ -71,4 +71,56 @@
             margin-top: 10px;
             transition: 0.3s;
         }
-        but
+        button:hover {
+            opacity: 0.9;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #ccc;
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Logo_example.png" alt="Logo">
+        <h2>WEBSITE SCAN</h2>
+        <p>🔑 Login Admin QR Code</p>
+        
+        <div class="desc">
+            📌 <b>Fokus Aplikasi:</b> Mempercepat dan mempermudah pekerjaan <span>Admin Sistem</span>,
+            serta mendukung <span>Pemantauan Data</span> dalam pengelolaan hasil scan.
+        </div>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Masuk</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $user = $_POST['username'];
+            $pass = $_POST['password'];
+            if ($user == "dashboard" && $pass == "dashboard") {
+                echo "<p style='color: #00ff88; margin-top:10px;'>Login Berhasil! 🚀</p>";
+                echo "<script>
+                        setTimeout(() => { window.location='dashboard.php'; }, 1500);
+                      </script>";
+            } else {
+                echo "<p style='color: #ff4444; margin-top:10px;'>Username atau Password salah!</p>";
+            }
+        }
+        ?>
+
+        <footer>
+            <p><a href='#'>Tentang</a> | <a href='#'>Kontak</a><br>© 2025 WEBSITE SCAN</p>
+        </footer>
+    </div>
+</body>
+</html>
